@@ -5,10 +5,12 @@ import './App.css';
 import WeatherIcon from './components/weather/icon/WeatherIcon';
 import WeatherHeader from './components/weather/header/WeatherHeader';
 import Card from './components/weather/card/Card';
+import SearchBar from './components/search/SearchBar';
 
 function App() {
   return (
     <>
+      <SearchBar />
       <Card />
     </>
   );
