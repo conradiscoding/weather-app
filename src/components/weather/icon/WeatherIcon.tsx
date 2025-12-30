@@ -1,5 +1,6 @@
 import React from 'react';
 import { WiCloud, WiDaySunny, WiDayRain, WiDaySnow } from 'react-icons/wi';
+import styles from './WeatherIcon.module.css';
 
 interface WeatherIconProps {
   condition: 'sunny' | 'cloudy' | 'rainy' | 'snowy';
@@ -8,13 +9,13 @@ interface WeatherIconProps {
 const WeatherIcon = ({ condition }: WeatherIconProps) => {
   switch (condition) {
     case 'sunny':
-      return <WiDaySunny />;
+      return <WiDaySunny className={styles.iconSize} />;
     case 'cloudy':
-      return <WiCloud />;
+      return <WiCloud className={styles.iconSize} />;
     case 'rainy':
-      return <WiDayRain />;
+      return <WiDayRain className={styles.iconSize} />;
     case 'snowy':
-      return <WiDaySnow />;
+      return <WiDaySnow className={styles.iconSize} />;
     default:
       return <div>Unknown Condition</div>;
   }

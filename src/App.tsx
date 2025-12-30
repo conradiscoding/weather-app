@@ -4,12 +4,12 @@ import viteLogo from '/vite.svg';
 import './App.css';
 import WeatherIcon from './components/weather/icon/WeatherIcon';
 import WeatherHeader from './components/weather/header/WeatherHeader';
+import Card from './components/weather/card/Card';
 
 function App() {
   return (
     <>
-      <WeatherHeader location={'New York'} date={'2024-06-15'} />
-      <WeatherIcon condition={'sunny'} />
+      <Card />
     </>
   );
 }
