@@ -1,17 +1,25 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import styles from './SearchBar.module.css';
+import { getCurrentWeather } from '../../api/WeatherAPI';
 
 const SearchBar = () => {
   const [searchLocation, setSearchLocation] = useState('');
+  const [weatherData, setWeatherData] = useState();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchLocation(event.target.value);
   };
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     // Implement search logic here
     //get weather data from api with location
+    try {
+      const data = await getCurrentWeather(searchLocation);
+      console.log('Weather Data:', data);
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+    }
     //update redux store with results
     console.log('Searching for:', searchLocation);
   };
