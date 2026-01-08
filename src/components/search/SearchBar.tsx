@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import styles from './SearchBar.module.css';
 import { getCurrentWeather } from '../../api/WeatherAPI';
@@ -8,6 +8,10 @@ const SearchBar = () => {
   const [searchLocation, setSearchLocation] = useState('');
   const [weatherData, setWeatherData] = useState<WeatherResponse | null>(null);
 
+  useEffect(() => {
+    console.log('Weather Data Updated:', weatherData);
+  }, [weatherData]);
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchLocation(event.target.value);
   };
@@ -15,9 +19,8 @@ const SearchBar = () => {
   const handleSearch = async () => {
     // Implement search logic here
     //get weather data from api with location
-    //implement mapper from response data to map to weatherresponse object
     try {
-      const data = await getCurrentWeather(searchLocation);
+      const data: WeatherResponse = await getCurrentWeather(searchLocation);
       console.log('Weather Data:', data);
       setWeatherData(data);
     } catch (error) {
