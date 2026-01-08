@@ -16,10 +16,10 @@ const axiosClient: AxiosInstance = axios.create({
 axiosClient.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     // Example: Attach token if available
-    const token = import.meta.env.VITE_API_KEY as string;
-    if (token && config.headers) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
+    // const token = import.meta.env.VITE_API_KEY as string;
+    // if (token && config.headers) {
+    //   config.headers.Authorization = `Bearer ${token}`;
+    // }
     return config;
   },
   (error: AxiosError) => {
@@ -28,7 +28,7 @@ axiosClient.interceptors.request.use(
 );
 
 axiosClient.interceptors.response.use(
-  (response: AxiosResponse) => response.data,
+  (response: AxiosResponse) => response,
   (error: AxiosError) => {
     if (error.response) {
       console.error('API Error:', error.response.status, error.response.data);
