@@ -3,10 +3,14 @@ import { FaSearch } from 'react-icons/fa';
 import styles from './SearchBar.module.css';
 import { getCurrentWeather } from '../../api/WeatherAPI';
 import type { WeatherResponse } from '../../types/WeatherResponse';
+import { useSelector, useDispatch } from 'react-redux';
+import { setWeather } from '../../store/slices/weatherDataSlice';
+import type { RootState, AppDispatch } from '../../store/store';
 
 const SearchBar = () => {
   const [searchLocation, setSearchLocation] = useState('');
-  const [weatherData, setWeatherData] = useState<WeatherResponse | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
+  const weatherData = useSelector((state: RootState) => state.weather.data);
 
   useEffect(() => {
     console.log('Weather Data Updated:', weatherData);
@@ -17,17 +21,20 @@ const SearchBar = () => {
   };
 
   const handleSearch = async () => {
-    // Implement search logic here
-    //get weather data from api with location
+    // prevent empty queries
+    const city = searchLocation.trim();
+    if (!city) return;
+
     try {
-      const data: WeatherResponse = await getCurrentWeather(searchLocation);
+      const data: WeatherResponse = await getCurrentWeather(city);
       console.log('Weather Data:', data);
-      setWeatherData(data);
+      // update redux store with results
+      dispatch(setWeather(data));
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
-    //update redux store with results
-    console.log('Searching for:', searchLocation);
+
+    console.log('Searching for:', city);
   };
 
   return (
