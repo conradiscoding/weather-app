@@ -18,7 +18,7 @@ const Card = () => {
           />
           <div className={styles.tempConditionContainer}>
             <div className={styles.temperature}>
-              <p>{weatherData?.current.temp_f}</p>
+              <p>{weatherData?.current.temp_f} °F</p>
             </div>
             <div className={styles.condition}>
               <p>{weatherData?.current.condition.text}</p>
@@ -27,11 +27,17 @@ const Card = () => {
           <div>
             <div className={styles.detailsRow}>
               <div className={styles.details}>
-                <div>{weatherData.current.wind_mph}</div>
-                <div> {weatherData.current.humidity}</div>
+                <div>
+                  Wind: {weatherData.current.wind_mph}{' '}
+                  {weatherData.current.wind_dir}
+                </div>
+                <div> Humidity: {weatherData.current.humidity}</div>
               </div>
               <div className={styles.icon}>
-                <WeatherIcon condition="sunny" />
+                <WeatherIcon
+                  icon={weatherData.current.condition.icon}
+                  altText={weatherData.current.condition.text}
+                />
               </div>
             </div>
           </div>
