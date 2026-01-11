@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './WeatherHeader.module.css';
 
 interface WeatherHeaderProps {
-  location: string;
-  date: string;
+  location?: string;
+  date?: string;
 }
 
 const WeatherHeader = ({ location, date }: WeatherHeaderProps) => {
