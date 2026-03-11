@@ -1,0 +1,12 @@
+.app {
+  min-height: 85vh;
+  padding: 40px;
+  text-align: center;
+  background: linear-gradient(135deg, #5f9cff, #6dd5fa);
+}
+
+.title {
+  font-size: 36px;
+  color: white;
+  margin-bottom: 20px;
+}

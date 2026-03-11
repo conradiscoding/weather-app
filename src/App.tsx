@@ -1,11 +1,9 @@
 import './App.css';
-import Card from './components/weather/card/Card';
-import SearchBar from './components/search/SearchBar';
+import Home from './pages/Home';
 function App() {
   return (
     <>
-      <SearchBar />
-      <Card />
+      <Home />
     </>
   );
 }

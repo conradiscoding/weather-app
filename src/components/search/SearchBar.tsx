@@ -17,6 +17,7 @@ const SearchBar = () => {
   }, [weatherData]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
     setSearchLocation(event.target.value);
   };
 
@@ -39,10 +40,10 @@ const SearchBar = () => {
 
   return (
     <div className={styles.container}>
-      <div>Search Location Weather</div>
-      <div className={styles.input}>
+      <div className={styles.searchBar}>
         <div>
           <input
+            className={styles.input}
             value={searchLocation}
             onChange={handleInputChange}
             type="text"
