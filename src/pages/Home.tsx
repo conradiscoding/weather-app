@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Home.module.css';
 import Card from '../components/weather/card/Card';
 import SearchBar from '../components/search/SearchBar';
+import ForecastCard from '../components/weather/forecast/forecastCard/ForecastCard';
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
 
       <SearchBar />
       <Card />
+      <ForecastCard />
     </div>
   );
 };
