@@ -4,6 +4,24 @@ import type { RootState } from '../../../../store/store';
 import { useSelector } from 'react-redux';
 import styles from './ForecastCard.module.css';
 
+interface ForecastCardProps {
+  forecastday: {
+    date: string;
+    date_epoch: number;
+    day: {
+      maxtemp_c: number;
+      maxtemp_f: number;
+      mintemp_c: number;
+      mintemp_f: number;
+      condition: {
+        text: string;
+        icon: string;
+        code: number;
+      };
+    };
+  };
+}
+
 const ForecastCard = () => {
   const weatherData = useSelector((state: RootState) => state.weather.data);
   return (
