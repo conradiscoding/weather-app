@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import styles from './SearchBar.module.css';
-import { getCurrentWeather } from '../../api/WeatherAPI';
+import { getCurrentWeather, getForecastWeather } from '../../api/WeatherAPI';
 import type { WeatherResponse } from '../../types/WeatherResponse';
 import { useSelector, useDispatch } from 'react-redux';
 import { setWeather } from '../../store/slices/weatherDataSlice';
@@ -27,10 +27,14 @@ const SearchBar = () => {
     if (!city) return;
 
     try {
-      const data: WeatherResponse = await getCurrentWeather(city);
-      console.log('Weather Data:', data);
+      // const data: WeatherResponse = await getCurrentWeather(city);
+      // console.log('Weather Data:', data);
       // update redux store with results
-      dispatch(setWeather(data));
+      // dispatch(setWeather(data));
+
+      const forecastData: any = await getForecastWeather(city);
+      dispatch(setWeather(forecastData));
+      console.log('Forecast Data:', forecastData);
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }

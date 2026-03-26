@@ -15,4 +15,10 @@ async function getCurrentWeather(city: string): Promise<WeatherResponse> {
 //   return res.data;
 // }
 
-export { getCurrentWeather };
+async function getForecastWeather(city: string): Promise<WeatherResponse> {
+  const url = `/forecast.json?key=${import.meta.env.VITE_API_KEY}&q=${city}&days=5`;
+  const resp = await axiosClient.get<WeatherResponse>(url);
+  return resp.data;
+}
+
+export { getCurrentWeather, getForecastWeather };
