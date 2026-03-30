@@ -1,25 +1,126 @@
-.forecastContainer {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  margin: 10px auto;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+.forecastCard {
+  width: min(100%, 420px);
+  background: linear-gradient(180deg, #1a4d8f, #4c96f4);
+  color: #fff;
+  border-radius: 28px;
+  padding: 2rem;
+  box-shadow: 0 28px 60px rgba(0, 30, 80, 0.18);
+  animation: slideIn 0.35s ease both;
 }
 
-.forecastCard {
+.topRow {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  width: 10%;
-  padding: 20px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.date {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.8;
+  margin-bottom: 0.35rem;
+}
+
+.condition {
+  font-size: 1rem;
+  opacity: 0.9;
 }
 
 .icon {
-  width: auto;
-  border-radius: 4px;
+  width: 110px;
+  height: 110px;
+}
+
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.temperature {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tempItem {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.tempItem span {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.85;
+  margin-bottom: 0.4rem;
+}
+
+.tempItem strong {
+  font-size: 1.6rem;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.detailItem {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.detailItem span {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-bottom: 0.35rem;
+}
+
+.detailItem strong {
+  font-size: 1.1rem;
+}
+
+.astronomy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.astronomy div {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.astronomy span {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-bottom: 0.35rem;
+}
+
+.astronomy strong {
+  font-size: 1rem;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

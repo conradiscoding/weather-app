@@ -1,45 +1,58 @@
 .cardContainer {
-  width: 300px;
-  height: 80%;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 5px;
+  width: min(100%, 420px);
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 32px;
+  box-shadow: 0 32px 70px rgba(15, 50, 95, 0.16);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
+  gap: 1.5rem;
+  margin: 0;
+  height: 100%;
 }
 .tempConditionContainer {
   text-align: center;
 }
 .temperature {
-  margin-bottom: 0px;
+  font-size: 4rem;
+  font-weight: 800;
+  color: #0f3d76;
+  margin: 0;
+  line-height: 1;
 }
 .condition {
-  margin: 0px;
-  font-size: 15px;
-  color: #555;
+  margin: 0.35rem 0 0;
+  font-size: 1.1rem;
+  color: #4b5d78;
 }
 .detailsRow {
-  display: flex; /* Enable flexbox */
-  justify-content: space-between; /* Space between left and right sections */
-  align-items: center; /* Vertically center items */
-  padding: 10px;
-  border-top: 1px solid #ccc;
-  max-width: 600px;
-  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  gap: 1rem;
 }
 .details {
   display: flex;
-  gap: 15px;
-  background: #f0f0f0;
-  padding: 8px 12px;
-  border-radius: 4px;
   flex-direction: column;
-  margin-right: 30px;
+  gap: 0.75rem;
+  background: rgba(15, 57, 112, 0.06);
+  padding: 1rem;
+  border-radius: 22px;
+  flex: 1;
+}
+.details div {
+  font-size: 0.95rem;
+  color: #33415f;
 }
 .icon {
-  width: auto;
-  border-radius: 4px;
+  width: 100px;
+  height: 100px;
+}
+.icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
